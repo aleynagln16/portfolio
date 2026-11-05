@@ -1584,7 +1584,7 @@ body:has(.site[data-mode="dark"]){background:#111214}
   var site=document.getElementById('site'); if(!site) return;
   var CASES=[['case-esim','wesim','esimworld','eSIMWorld'],['case-dama','wdama','dama','Dama'],['case-oto','woto','otogit','Otogit'],['case-hek','whek','hekimbul','HekimBul'],['case-cash','wcash','cashly','Cashly'],['case-yk','uxyk','yakinimda','Yakınımda'],['case-n11','uxn11','n11','n11'],['case-cs','uxcs','ciceksepeti','Çiçeksepeti']];
   var ALL=[['wesim','eSIMWorld'],['wdama','Dama'],['woto','Otogit'],['whek','HekimBul'],['wcash','Cashly']];
-  var cur=null;
+  var cur=null, skip=0;
   function top(){ var r=site.getBoundingClientRect(); window.scrollTo({top:window.scrollY+r.top-16,behavior:'auto'}); }
   function others(kz,selfCard){
     var row=kz.querySelector('[data-kz-other]'); if(!row||row.dataset.done) return; row.dataset.done=1;
@@ -1600,19 +1600,20 @@ body:has(.site[data-mode="dark"]){background:#111214}
       row.appendChild(a);
     });
   }
-  function open(cs){ var kz=document.getElementById(cs[0]); if(!kz) return; if(cur&&cur!==kz) cur.hidden=true;
+  function open(cs,nohist){ var kz=document.getElementById(cs[0]); if(!kz) return; if(cur&&cur!==kz) cur.hidden=true;
     others(kz,cs[1]); var cc=document.getElementById('ccur'); if(cc) cc.classList.remove('on');
-    kz.hidden=false; cur=kz; site.classList.add('kz-on'); top(); try{history.replaceState(null,'','#'+cs[2]);}catch(e){} }
-  function close(toWorks){ if(!site.classList.contains('kz-on')) return; var id=cur&&cur.id; site.classList.remove('kz-on'); if(cur) cur.hidden=true; cur=null;
-    try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}
+    kz.hidden=false; cur=kz; site.classList.add('kz-on'); top(); if(!nohist){ try{ if(location.hash!=='#'+cs[2]) history.pushState({kz:1},'','#'+cs[2]); }catch(e){} } }
+  function close(toWorks,nohist){ if(!site.classList.contains('kz-on')) return; var id=cur&&cur.id; site.classList.remove('kz-on'); if(cur) cur.hidden=true; cur=null;
+    if(!nohist){ try{ if(history.state&&history.state.kz){ skip=1; history.back(); } else history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
     if(toWorks){ var cs=CASES.filter(function(c){return c[0]===id})[0]; var w=cs&&document.getElementById(cs[1]); if(w) w.scrollIntoView({block:'center'}); } }
   CASES.forEach(function(cs){
     var kz=document.getElementById(cs[0]), card=document.getElementById(cs[1]); if(!kz||!card) return;
     card.addEventListener('click',function(e){ e.preventDefault(); open(cs); });
     kz.querySelectorAll('[data-kz-close]').forEach(function(b){ b.addEventListener('click',function(){ close(true); }); });
     if(window.matchMedia('(hover:none)').matches) kz.querySelectorAll('.kz-long').forEach(function(el){ el.addEventListener('click',function(){ el.classList.toggle('on'); }); });
-    if(location.hash==='#'+cs[2]) open(cs);
+    if(location.hash==='#'+cs[2]) open(cs,true);
   });
+  window.addEventListener('popstate',function(){ if(skip){ skip=0; return; } var cs=CASES.filter(function(c){return location.hash==='#'+c[2]})[0]; if(cs) open(cs,true); else if(site.classList.contains('kz-on')){ var id=cur&&cur.id; close(false,true); var c2=CASES.filter(function(c){return c[0]===id})[0]; var w=c2&&document.getElementById(c2[1]); if(w) w.scrollIntoView({block:'center'}); } });
   var menu=site.querySelector('.menu'); if(menu) menu.addEventListener('click',function(){ close(false); },true);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(true); });
 })();
