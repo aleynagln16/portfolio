@@ -1608,6 +1608,9 @@ body:has(.site[data-mode="dark"]){background:#111214}
   function close(toWorks,nohist){ if(!site.classList.contains('kz-on')) return; var id=cur&&cur.id; site.classList.remove('kz-on'); if(cur) cur.hidden=true; cur=null;
     if(!nohist){ try{ if(history.state&&history.state.kz){ skip=1; history.back(); } else history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
     if(toWorks){ var cs=CASES.filter(function(c){return c[0]===id})[0]; var w=cs&&document.getElementById(cs[1]); if(w) w.scrollIntoView({block:'center'}); } }
+  var lg=document.getElementById('logo'); if(lg){ lg.style.cursor='pointer'; lg.setAttribute('role','link'); lg.setAttribute('tabindex','0'); lg.setAttribute('aria-label','Home');
+    var goHome=function(e){ if(e) e.preventDefault(); close(false); window.scrollTo({top:0,behavior:'smooth'}); };
+    lg.addEventListener('click',goHome); lg.addEventListener('keydown',function(e){ if(e.key==='Enter') goHome(e); }); }
   CASES.forEach(function(cs){
     var kz=document.getElementById(cs[0]), card=document.getElementById(cs[1]); if(!kz||!card) return;
     card.addEventListener('click',function(e){ e.preventDefault(); open(cs); });
