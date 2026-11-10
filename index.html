@@ -760,12 +760,11 @@ body:has(.site[data-mode="dark"]){background:#111214}
 @media (hover:none),(pointer:coarse){.drawhint{display:none!important}}
 
 /* Dama NDA note */
-#wdama .lid,#case-dama .kz-scr,#case-dama .kz-pic{position:relative}
-#wdama .dbw .lid::after{z-index:20;display:block!important;width:auto;aspect-ratio:auto;box-shadow:none;border-radius:999px;top:50%;transform:translate(-50%,-50%)}
-#wdama .lid::after,#case-dama .kz-scr::after,#case-dama .kz-pic::after{content:"Screens can\2019t be shared due to an NDA";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;pointer-events:none;
+#case-dama .kz-x .kz-scr,#case-dama .kz-x .kz-pic{position:relative}
+#case-dama .kz-x .kz-scr::after,#case-dama .kz-x .kz-pic::after{content:"Screens can\2019t be shared due to an NDA";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;pointer-events:none;
 background:rgba(17,18,20,.82);color:#fff;font:500 13px/1.35 inherit;font-family:inherit;padding:9px 14px;border-radius:999px;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis;backdrop-filter:blur(4px)}
-.site:lang(tr) #wdama .lid::after,.site:lang(tr) #case-dama .kz-scr::after,.site:lang(tr) #case-dama .kz-pic::after{content:"Gizlilik s\00F6zle\015Fmesi nedeniyle ekranlar payla\015F\0131lam\0131yor"}
-@media (max-width:600px){#wdama .lid::after,#case-dama .kz-scr::after,#case-dama .kz-pic::after{font-size:11px;padding:7px 11px;white-space:normal;text-align:center;width:max-content;max-width:80%}}
+.site:lang(tr) .site:lang(tr) #case-dama .kz-x .kz-scr::after,.site:lang(tr) #case-dama .kz-x .kz-pic::after{content:"Gizlilik s\00F6zle\015Fmesi nedeniyle ekranlar payla\015F\0131lam\0131yor"}
+@media (max-width:600px){#case-dama .kz-x .kz-scr::after,#case-dama .kz-x .kz-pic::after{font-size:11px;padding:7px 11px;white-space:normal;text-align:center;width:max-content;max-width:80%}}
 </style>
 
 </head>
@@ -837,7 +836,7 @@ background:rgba(17,18,20,.82);color:#fff;font:500 13px/1.35 inherit;font-family:
   </dl>
   <div class="kz-hero kz-hw">
     <div class="kz-glow"></div>
-    <div class="kz-bw kz-hb kz-long" style="--r:2.7780;--ar:1.6000"><div class="kz-bar"><i></i><i></i><i></i><span>app.dama</span></div><div class="kz-scr"><div class="kz-mv"><img loading="lazy" decoding="async" src="img/d746b1c7f123.webp" alt=""></div></div><span class="kz-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="3" width="10" height="16" rx="5"/><path class="kz-wh" d="M12 7v3"/></svg><b class="kz-hv"><span data-l="en">Hover to scroll</span><span data-l="tr">Kaydırmak için üzerine gel</span></b><b class="kz-tp"><span data-l="en">Tap to scroll</span><span data-l="tr">Kaydırmak için dokun</span></b></span></div>
+    <div class="kz-bw kz-hb kz-long" style="--r:2.7780;--ar:1.6000"><div class="kz-bar"><i></i><i></i><i></i><span>app.dama</span></div><div class="kz-scr"><div class="kz-mv"><img loading="lazy" decoding="async" src="img/7667db34dae6.webp" alt=""></div></div><span class="kz-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="3" width="10" height="16" rx="5"/><path class="kz-wh" d="M12 7v3"/></svg><b class="kz-hv"><span data-l="en">Hover to scroll</span><span data-l="tr">Kaydırmak için üzerine gel</span></b><b class="kz-tp"><span data-l="en">Tap to scroll</span><span data-l="tr">Kaydırmak için dokun</span></b></span></div>
   </div>
 <section class="xp kz-x"><div class="xp-g2"><div class="xp-side"><h3><span data-l="en">My role</span><span data-l="tr">Rolüm</span></h3>
   <p class="xp-lead"><span data-l="en">I designed the analytics web panel.</span><span data-l="tr">Analitik web panelini tasarladım.</span></p></div>
@@ -1099,7 +1098,7 @@ background:rgba(17,18,20,.82);color:#fff;font:500 13px/1.35 inherit;font-family:
         </a>
         <a class="case c-dama" id="wdama" data-cur="cur_da">
           <div class="cover"><div class="cv-in"><div class="lap dbw" id="dlap"><div class="lid"><div class="bw-bar"><i></i><i></i><i></i><span>Dama</span></div><div class="vp" id="dvp">
-            <img class="v-dash" draggable="false" alt="" src="img/f19ab60f6986.webp">
+            <img class="v-dash" draggable="false" alt="" src="img/4dec6cf2e16c.webp">
             <img class="v-th" draggable="false" alt="" src="img/9d3e3f136dc7.webp">
             <img class="v-rs" draggable="false" alt="" src="img/cc0617263e19.webp">
             <span class="mring" id="dring"></span><svg class="mcur" id="dmcur" viewBox="0 0 24 24"><path d="M5 2.5v17.2l4.6-4.3 2.9 6.6 2.9-1.3-2.9-6.5 6.3-.2z" fill="#111" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg>
