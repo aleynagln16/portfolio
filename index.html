@@ -765,6 +765,25 @@ body:has(.site[data-mode="dark"]){background:#111214}
 background:rgba(17,18,20,.82);color:#fff;font:500 13px/1.35 inherit;font-family:inherit;padding:9px 14px;border-radius:999px;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis;backdrop-filter:blur(4px)}
 .site:lang(tr) .site:lang(tr) #case-dama .kz-x .kz-scr::after,.site:lang(tr) #case-dama .kz-x .kz-pic::after{content:"Gizlilik s\00F6zle\015Fmesi nedeniyle ekranlar payla\015F\0131lam\0131yor"}
 @media (max-width:600px){#case-dama .kz-x .kz-scr::after,#case-dama .kz-x .kz-pic::after{font-size:11px;padding:7px 11px;white-space:normal;text-align:center;width:max-content;max-width:80%}}
+/* ===== Hero: daha canlı ve okunur (2026-11-20) ===== */
+.site .nav,.site .hero{--ink:#0E0F13;--sm:#43464E;--chip:#EFEFF2;--hl:#E5502A}
+.site[data-mode="dark"] .nav,.site[data-mode="dark"] .hero{--ink:#F7F7F5;--sm:#BFC1C8;--chip:#24252B}
+/* imleç altındaki noktalı arka plan kaldırıldı */
+.site .hero::before{display:none}
+.site .drawhint{display:none}
+.site .hero{padding:96px 24px 104px}
+.site .head{font-size:clamp(34px,5vw,64px);font-weight:700;letter-spacing:-.03em}
+.site .loc{font-size:18px;color:var(--sm)}
+.site .loc .pin{width:10px;height:10px}
+.site .menu{font-size:17px;color:var(--ink);font-weight:500}
+.site .hero .b{font-size:17px;font-weight:600;padding:14px 24px}
+.site .hero .b.cv{background:var(--hl);color:#fff}
+.site .hero .b.cv:hover{background:color-mix(in srgb,var(--hl) 88%,#000)}
+@media (max-width:720px){
+  .site .hero{padding:64px 18px 72px}
+  .site .head{font-size:clamp(30px,8vw,40px)}
+  .site .hero .b{font-size:16px;padding:12px 18px}
+}
 </style>
 
 </head>
