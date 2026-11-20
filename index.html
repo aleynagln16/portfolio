@@ -765,6 +765,82 @@ body:has(.site[data-mode="dark"]){background:#111214}
 background:rgba(17,18,20,.82);color:#fff;font:500 13px/1.35 inherit;font-family:inherit;padding:9px 14px;border-radius:999px;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis;backdrop-filter:blur(4px)}
 .site:lang(tr) .site:lang(tr) #case-dama .kz-x .kz-scr::after,.site:lang(tr) #case-dama .kz-x .kz-pic::after{content:"Gizlilik s\00F6zle\015Fmesi nedeniyle ekranlar payla\015F\0131lam\0131yor"}
 @media (max-width:600px){#case-dama .kz-x .kz-scr::after,#case-dama .kz-x .kz-pic::after{font-size:11px;padding:7px 11px;white-space:normal;text-align:center;width:max-content;max-width:80%}}
+/* ===== Canlı + okunur katman (2026-11-20) ===== */
+/* daha koyu yardımcı metin, daha güçlü vurgu */
+.site{--ink:#0E0F13;--sm:#43464E;--chip:#EFEFF2;--brd:#E3E3E8;--hl:#E5502A}
+.site[data-mode="dark"]{--ink:#F7F7F5;--sm:#BFC1C8;--chip:#24252B;--brd:#2C2D33}
+
+/* hero: imleç altındaki noktalı arka plan kaldırıldı */
+.site .hero::before{display:none}
+.site .drawhint{display:none}
+.site .hero{padding:96px 24px 104px}
+.site .head{font-size:clamp(34px,5vw,64px);font-weight:700;letter-spacing:-.03em}
+.site .loc{font-size:18px;color:var(--sm)}
+.site .loc .pin{width:10px;height:10px}
+.site .menu{font-size:17px;color:var(--ink);font-weight:500}
+.site .b{font-size:17px;font-weight:600;padding:14px 24px}
+.site .b.cv{background:var(--hl);color:#fff}
+.site .b.cv:hover{background:color-mix(in srgb,var(--hl) 88%,#000)}
+
+/* proje kartları: soluk pastel yerine her projenin kendi rengi */
+.site .c-esim{--tint:linear-gradient(150deg,#C7328B 0%,#830072 100%)}
+.site .c-dama{--tint:linear-gradient(150deg,#4C6FFF 0%,#1F2E8F 100%)}
+.site .c-oto{--tint:linear-gradient(150deg,#3D7BFF 0%,#1438C8 100%)}
+.site .c-hek{--tint:linear-gradient(150deg,#19B49A 0%,#0A6E60 100%)}
+.site .c-cash{--tint:linear-gradient(150deg,#8B6BFF 0%,#3B1FA8 100%)}
+.site[data-mode="dark"] .c-esim{--tint:linear-gradient(150deg,#A0236F,#5E0052)}
+.site[data-mode="dark"] .c-dama{--tint:linear-gradient(150deg,#3653D6,#16206A)}
+.site[data-mode="dark"] .c-oto{--tint:linear-gradient(150deg,#2E63E0,#0F2A99)}
+.site[data-mode="dark"] .c-hek{--tint:linear-gradient(150deg,#13917C,#074F45)}
+.site[data-mode="dark"] .c-cash{--tint:linear-gradient(150deg,#6F50E8,#2C1782)}
+.site .cover{border-radius:18px}
+
+/* başlıklar */
+.site .works h3{font-size:clamp(34px,4vw,48px);font-weight:700;letter-spacing:-.03em}
+.site .whead small{font-size:17px;color:var(--sm)}
+.site .chd h4{font-size:28px;font-weight:700;letter-spacing:-.025em}
+.site .chd p{font-size:18px;color:var(--sm);line-height:1.5}
+.site .cmeta{font-size:15px;font-weight:600;color:var(--hl)}
+.site .ctags span{font-size:14.5px;padding:8px 12px;border-radius:8px}
+
+/* UX School kartları */
+.site .ux-body h5{font-size:25px;font-weight:700}
+.site .ux-body p{font-size:17px;line-height:1.55;color:var(--sm)}
+
+/* araçlar */
+.site .tl-h{font-size:clamp(26px,2.8vw,34px);font-weight:600;max-width:360px}
+
+/* deneyim ve case study metinleri */
+.site .xp-lead,.site .xp-g2 .xp-lead{font-size:clamp(19px,1.8vw,23px);line-height:1.5}
+.site .xp-g h3,.site .xp-side h3,.site .kz-fh h3,.site .ct-t{font-size:clamp(26px,2.6vw,32px);font-weight:700;letter-spacing:-.025em}
+.site .xp-g2 .xe-dt,.site .xe-dt{font-size:15.5px;font-weight:600;color:var(--hl)}
+.site .xp-g2 .xe-co h4{font-size:25px;font-weight:700}
+.site .xp-g2 .xe-role,.site .xe-role{font-size:18px;color:var(--ink);font-weight:500}
+.site .xp-g2 .xe-desc,.site .xe-desc{font-size:17.5px;line-height:1.65;color:var(--sm)}
+.site .xp-g2 .xe-list li,.site .xe-list li{font-size:17px}
+.site .xe-list li::before{background:var(--hl)}
+.site .xp-g2 .xe-more,.site .xe-more{font-size:16px}
+.site .xp-g2 .xe-lbl,.site .xe-lbl{font-size:13px;color:var(--ink);letter-spacing:.1em}
+.site .xp-g2 .xe-chips span,.site .xe-chips span{font-size:15px;padding:8px 14px}
+.site .xc{font-size:16.5px}
+.site .xd{font-size:16px}
+.site .kz-fc h4{font-size:21px;font-weight:700}
+.site .kz-fc p{font-size:17px;opacity:1;color:var(--sm)}
+
+/* yan proje ve iletişim */
+.site .sp-eb{font-size:13px}
+.site .sp-p{font-size:17.5px;color:#3E3F47}
+.site .ct-k{font-size:18px;color:var(--sm)}
+.site .ct-big{color:var(--ink)}
+
+@media (max-width:720px){
+  .site .hero{padding:64px 18px 72px}
+  .site .head{font-size:clamp(30px,8vw,40px)}
+  .site .chd h4{font-size:24px}
+  .site .chd p,.site .xp-g2 .xe-desc,.site .xe-desc,.site .kz-fc p{font-size:17px}
+  .site .b{font-size:16px;padding:12px 18px}
+}
+.site .cs-cover{background:linear-gradient(160deg,#E6DDFF 0%,#C9B8FF 100%)}
 </style>
 
 </head>
